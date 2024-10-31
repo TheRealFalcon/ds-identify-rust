@@ -1,0 +1,27 @@
+[package]
+name = "ds-identify-rust"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "1.0"
+serde_yaml = "0.9"
+serde_with = "3.0.0"
+smbios-lib = "0.9.0"
+blkid = "1.0.1"
+uname = "0.1.1"
+sysctl = "0.5.4"
+procfs = "0.15.1"
+glob = "0.3.1"
+simple-logging = "2.0.2"
+log = "0.4.21"
+
+[profile.release]
+# Lets see how small we can get it
+strip = true
+opt-level = "z"   # Optimize for size
+lto = true
+codegen-units = 1
+panic = "abort"
